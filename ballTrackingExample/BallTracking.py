@@ -227,6 +227,6 @@ while True:
 		file.write(str(d1))
 
 		file.close()
-		#break
+		break
 
 cv2.destroyAllWindows()
