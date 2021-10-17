@@ -1,1 +1,10 @@
 Ball tracking example code. Code measure Distance to ball
+
+
+1. Get a webcam it can be a phone. I personaly use android and DroidCam software. 
+
+2. Go to line 40 in my code and put right number to "cap = cv2.VideoCapture(1)" <-- HERE
+
+3. after that is done run the code. I use Pycharm for this.
+
+4
