@@ -20,8 +20,8 @@ number1 = tk.StringVar()
 number2 = tk.StringVar()
 
 
-e = tk.Entry(root, textvariable=number1)
-f = tk.Entry(root, textvariable=number2)
+e = tk.Entry(root, textvariable=number1, width=100)
+f = tk.Entry(root, textvariable=number2, width=100)
 e.pack()
 f.pack()
 def myClick():
@@ -31,7 +31,7 @@ def myClick():
 	d1= (int(str(number1.get())))
 	p1= (int(str(number2.get())))
 
-myButton = tk.Button(root, text="Valmis", command=myClick)
+myButton = tk.Button(root, text="Calibrate", command=myClick)
 myButton.pack()
 
 def nothing(*arg):
@@ -50,7 +50,6 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 
 
 cv2.namedWindow('colorTest')
-cv2.namedWindow('colorTestCrop')
 
 # Lower range colour sliders.
 cv2.createTrackbar('lowHue', 'colorTest', icol[0], 255, nothing)
@@ -109,14 +108,14 @@ while True:
 	colorHigh = np.array([highHue, highSat, highVal])
 	mask = cv2.inRange(hsv, colorLow, colorHigh)
     # Show the first mask
-	#cv2.imshow('mask-plain 3', mask)
+	cv2.imshow('First mask', mask)
 
 	kernal = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
 	mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernal)
 	mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernal)
 
     # Show morphological transformation mask
-	#cv2.imshow('mask 4', mask)
+	cv2.imshow('morphological transformation mask', mask)
 
     # Put mask over top of the original image.
 	result = cv2.bitwise_and(frame, frame, mask=mask)
@@ -134,7 +133,7 @@ while True:
 
 	drawCont =  cv2.drawContours(frame, contours, -1, (0, 255, 0), 3)
 
-	#cv2.imshow('drawContours 6', drawCont)
+	cv2.imshow('drawContours', drawCont)
 
 	contour_sizes = [(cv2.contourArea(contour), contour) for contour in contours]
 	biggest_contour = ""
