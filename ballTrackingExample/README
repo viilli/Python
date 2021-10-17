@@ -7,4 +7,25 @@ Ball tracking example code. Code measure Distance to ball
 
 3. after that is done run the code. I use Pycharm for this.
 
-4
+4. There will popup six windows. 
+  - First mask
+  - morphological transformation mask
+  - drawContours
+  - rectangle
+  - colorTest
+  - Cropped frame
+  
+  drawContours is for visualizer for masks
+  rectangle is final output
+  cropped frame show what rectangle window is targeted
+  colorTest window is used to change values for get good contrast between ball and background. You have to get the ball white and background black for this to work
+
+5. but ball front of the camera. camera have to see it fully. use ruler to measure distance to camera. I did put the camera to face up to sealing. then I put the ball 15cm
+from the camera. mark down the distance and how many pixels is the ball wide in rectangle window. 
+
+6. press 'k' to open calibration window. first input is for distance and second is for pixels. when you are ready press Calibrate button and close the window. that unfreeze
+the other program. 
+
+7. after that press 'ESC' it will close and stop program, but it will also save the settings and calibration so you dont have to do that every time. 
+
+8. run code again. it will load the settings and you are good to go
